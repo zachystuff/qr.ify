@@ -43,7 +43,7 @@ def initializer():
             time.sleep(2)
             initializer()
 
-    intro = text2art("\n\n\nWelcome\nto\nQR.ify\n", "random")
+    intro = text2art("\n\nQR.ify\n", "random")
     print(intro)
     time.sleep(3)
 
