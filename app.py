@@ -5,10 +5,10 @@ from csv_reader import csv_reader
 from file_compressor import zip_directory
 from art import *
 import os
+import time
 
 
 def app():
-
     def inputvalidation(usrinput):
         if usrinput.endswith(".com"):
             print(".com string input")
@@ -20,18 +20,27 @@ def app():
             print("Enter a valid url or csv file")
             app()
 
-    intro = text2art("Welcome to QR.ify", "random")
+    intro = text2art("Welcome\nto\nQR.ify\n", "random")
     print(intro)
-    print("In qr.ify, we know how hard you've worked as a small business owner.\nWe want to make marketing easier for "
-          "you so you can focus your energy on what matters, Making money and being the BOSS.\nOur application allows "
-          "you to convert your website, social media and other things into a qr code so people can connect with you.\n"
-          "Enter your qr code below and start today \n")
+    time.sleep(3)
 
-    user_input = input("==>")
+    def intro():
+        print("In qr.ify, we know how hard you've worked as a small business owner.\nWe want to make marketing easier "
+              "for "
+              "you so you can focus your energy on what matters, Making money and being the BOSS.\nOur application "
+              "allows "
+              "you to convert your website, social media and other things into a qr code so people can connect with "
+              "you.\n "
+              "Enter your qr code below and start today \n")
 
+        return input("==>")
+
+    user_input = intro()
     processed_user_input = inputvalidation(user_input)
-
-    adv_settings = input("Would you like to make any customizations to your qrcode?\nYes (y) or No (n) ==>")
+    time.sleep(3)
+    print("Would you like to make any customizations to your qrcode?\nYes (y) or No (n) ")
+    time.sleep(3)
+    adv_settings = input("==>")
 
     if adv_settings.lower() == 'y':
         qr_box_size = input("Size? \n>")
@@ -52,4 +61,14 @@ def app():
             for singleqr in processed_user_input:
                 qr_gen(singleqr)
 
+    print("QR conversion complete! Your files can be found in the encoded_qr_img folder.\n"
+          "Would you like to qr.ify any other files/folders? \n"
+          "==> (y) / (n)")
+    answer = input()
 
+    if answer == "y":
+        app()
+    elif answer == "n":
+        print("Thanks for using our service, come again soon and recommend us on the app store")
+    else:
+        print("Really dude? Goodbye")
