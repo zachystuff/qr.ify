@@ -59,7 +59,6 @@ def initializer():
 
     user_input = intro()
     validated_user_input = inputvalidation(user_input)
-    print(validated_user_input)
     time.sleep(3)
     print("Would you like to make any customizations to your qrcode?\nYes (y) or No (n) ")
     time.sleep(3)
