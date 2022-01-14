@@ -20,6 +20,6 @@ def qr_gen(data, box_size=10, border=4, fill_color="black", back_color="white"):
     img = qr.make_image(fill_color=fill_color, back_color=back_color)
     type(img)  # qrcode.image.pil.PilImage
     filename = str(uuid.uuid4())
-    img.save(f"./encoded_qrcode_img/{filename}.png")
+    img.save(f"./qr_ify/encoded_qrcode_img/{filename}.png")
     print(f"QRcode generated: {filename}.png")
     return
